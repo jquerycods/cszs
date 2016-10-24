@@ -1,0 +1,1310 @@
+﻿/* Main CSS */
+
+body{
+    margin:0;
+}
+header {
+    height: 150px;
+    background-color: #292929;
+    width: 100%; 
+    position: relative;
+}  
+header > span {
+    text-align:center;
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+    color: white;
+    display: block;
+    margin: 0px auto;
+    position:relative;
+    top: 50%;
+    transform: translate(0%, -35%);
+    line-height: 40px;
+}
+header > span > span {
+    text-align:center;
+    font-family: 'Pacifico', cursive;
+    font-size: 14px;
+    color: #CBCBCB;
+}
+/* Styling the parent container div. */
+.container {
+    position:relative;
+    max-width:700px;
+    max-height:350px;
+    margin:50px auto 0px auto;
+    overflow:hidden;
+    border:8px solid white;
+    -webkit-box-shadow:0px 0px 1px 0px rgba(0,0,0,0.8); /* For Chrome 4.0+ and Safari 3.5+ */
+    -moz-box-shadow:0px 0px 1px 0px rgba(0,0,0,0.8); /* For Firefox */
+    box-shadow:0px 0px 1px 0px rgba(0,0,0,0.8); /* Standard syntax */
+}
+
+/* For autoplaying slides. */
+input[name|=playstop]:checked ~ .slider {
+    -webkit-animation:autoplay 15s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-iteration-count:infinite; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:autoplay 15s; /* For Firefox 5.0+ */ 
+    -moz-animation-iteration-count:infinite; /* For Firefox 5.0+ */
+    -o-animation:autoplay 15s; /* For Opera 12.0+ */
+    -o-animation-iteration-count:infinite; /* For Opera 12.0+ */
+    animation:autoplay 15s; /* Standard Syntax */
+    animation-iteration-count:infinite; /* Standard Syntax */   
+}
+
+/* For hiding media icons, arrows and bullets during autoplay. */
+input[name|=playstop]:checked ~ .media-back .media, input[name|=playstop]:checked ~ .bullets, input[name|=playstop]:checked ~ .forward-arrow, input[name|=playstop]:checked ~ .backward-arrow{
+     opacity:0;
+    -webkit-animation:downall 0.1s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-delay:0.25s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-fill-mode:forwards; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:downall 0.1s; /* For Firefox 5.0+ */ 
+    -moz-animation-delay:0.25s; /* For Firefox 5.0+ */
+    -moz-animation-fill-mode:forwards; /* For Firefox 5.0+ */
+    -o-animation:downall 0.1s; /* For Opera 12.0+ */
+    -o-animation-delay:0.25s; /* For Opera 12.0+ */
+    -o-animation-fill-mode:forwards; /* For Opera 12.0+ */
+    animation:downall 0.1s; /* Standard Syntax */
+    animation-delay:0.25s; /* Standard Syntax */
+    animation-fill-mode:forwards; /* Standard Syntax */
+}
+
+/* Styling the autoplay icon's container. */
+.toggle {
+    position:absolute;
+    left:10px;
+    top:-20px;
+    cursor:pointer;
+    -webkit-transition:top 0.6s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:top 0.6s; /* For firefox 4.0+ */
+    -o-transition:top 0.6s;  /* For Opera 10.5+ */ 
+    transition:top 0.6s; /* Standard syntax */
+    z-index:100;
+}
+
+/* Styling tooptip on autoplay icon. */
+.toggle:hover:before {
+    position:absolute;
+    content:'Autoplay';
+    overflow:hidden;
+    background-color:#292929;
+    font-family:Helvetica, sans-serif;
+    -webkit-animation:showhide 5s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-fill-mode:forwards; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:showhide 5s; /* For Firefox 5.0+ */ 
+    -moz-animation-fill-mode:forwards; /* For Firefox 5.0+ */
+    -o-animation:showhide 5s; /* For Opera 12.0+ */
+    -o-animation-fill-mode:forwards; /* For Opera 12.0+ */    
+    animation:showhide 5s; /* Standard Syntax */    
+    animation-fill-mode:forwards; /* Standard Syntax */
+    padding:5px;
+    font-size:12px;
+    color:white;
+    top:30px;
+}
+
+/* Styling the autoplay icon. */
+.toggle span {
+    -webkit-transition:opacity 0.4s, text-shadow 0.4s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:opacity 0.4s, text-shadow 0.4s; /* For firefox 4.0+ */
+    -o-transition:opacity 0.4s, text-shadow 0.4s;  /* For Opera 10.5+ */ 
+    transition:opacity 0.4s, text-shadow 0.4s; /* Standard syntax */
+    opacity:0.3;
+    color:white;
+    font-size:20px;
+}
+
+/* Sliding down of autoplay icon when .container div is hovered. */
+.container:hover .toggle-back .toggle {
+    top:10px;
+}
+
+/* For brightening up of autoplay icon when it's hovered. */
+.toggle:hover span {
+    -webkit-text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* For Chrome and Safari */
+    -moz-text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* For Firefox */
+    text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* Standar syntax */
+    opacity:1;
+}
+
+/* For holding autoplay icon's opacity and shadow upon clicking it. */
+input[name|=playstop]:checked ~ .toggle-back .toggle span{
+    opacity:1;
+    -webkit-text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* For Chrome and Safari */
+    -moz-text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* For Firefox */
+    text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* Standar syntax */
+}
+
+/* Fixing the position of autoplay icon when it's clicked. */ 
+input[name|=playstop]:checked ~ .toggle-back .toggle {
+    top:10px;
+}
+
+/* Hiding checkboxes and radio buttons. */
+input[name|=common], input[name|=playstop], input[name|=mediashare] {
+    display:none;
+}
+
+/* Manual sliding of images. */ 
+.one-radio:checked ~ .slider {
+    left:0%;
+}
+.two-radio:checked ~ .slider {
+    left:-100%;
+}
+.three-radio:checked ~ .slider {
+    left:-200%;
+}
+.four-radio:checked ~ .slider {
+    left:-300%;
+}
+.five-radio:checked ~ .slider {
+    left:-400%;
+}
+
+/* Layering arrows. */
+.one-radio:checked ~ .forward-arrow label:nth-of-type(1),
+.two-radio:checked ~ .forward-arrow label:nth-of-type(2),
+.three-radio:checked ~ .forward-arrow label:nth-of-type(3),
+.four-radio:checked ~ .forward-arrow label:nth-of-type(4),
+.five-radio:checked ~ .forward-arrow label:nth-of-type(5),
+.one-radio:checked ~ .backward-arrow label:nth-of-type(1),
+.two-radio:checked ~ .backward-arrow label:nth-of-type(2),
+.three-radio:checked ~ .backward-arrow label:nth-of-type(3),
+.four-radio:checked ~ .backward-arrow label:nth-of-type(4),
+.five-radio:checked ~ .backward-arrow label:nth-of-type(5) {
+    z-index:0;
+    visibility:hidden;
+}
+.one-radio:checked ~ .forward-arrow label:nth-of-type(2),
+.two-radio:checked ~ .forward-arrow label:nth-of-type(3),
+.three-radio:checked ~ .forward-arrow label:nth-of-type(4),
+.four-radio:checked ~ .forward-arrow label:nth-of-type(5),
+.five-radio:checked ~ .forward-arrow label:nth-of-type(1),
+.one-radio:checked ~ .backward-arrow label:nth-of-type(5),
+.two-radio:checked ~ .backward-arrow label:nth-of-type(1),
+.three-radio:checked ~ .backward-arrow label:nth-of-type(2),
+.four-radio:checked ~ .backward-arrow label:nth-of-type(3),
+.five-radio:checked ~ .backward-arrow label:nth-of-type(4) {
+    z-index:2;
+    visibility:visible;
+}
+
+/* Active image bullet. */
+.one-radio:checked ~ .bullets label:nth-of-type(1),
+.two-radio:checked ~ .bullets label:nth-of-type(2),
+.three-radio:checked ~ .bullets label:nth-of-type(3),
+.four-radio:checked ~ .bullets label:nth-of-type(4),
+.five-radio:checked ~ .bullets label:nth-of-type(5) {
+    background-color:rgba(0,0,0,0.9);
+    border-color:rgba(250,250,250,0.1);
+    opacity:1;
+}
+        
+/* Styling images' container. */
+.slider {
+    position:relative;
+    width:500%;
+    z-index:1;
+    -webkit-transition:left 0.6s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transitionleft 0.6s; /* For firefox 4.0+ */
+    -o-transition:left 0.6s;  /* For Opera 10.5+ */ 
+    transition:left 0.6s; /* Standard syntax */
+}
+
+/* Styling images. */
+.slider img {
+    position:relative;
+    float:left;
+    max-width:100%;
+    height:auto;
+    width:20%;
+    margin-bottom:-2px;
+}
+
+/* Styling arrows' containers. */
+.forward-arrow, .backward-arrow {
+    position:absolute;
+    overflow:hidden;
+    width:50%;
+    height:100%;
+    top:0%;
+    z-index:2;
+   -webkit-transition:opacity 0.4s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:opacity 0.4s; /* For firefox 4.0+ */
+    -o-transition:opacity 0.4s;  /* For Opera 10.5+ */ 
+    transition:opacity 0.4s; /* Standard syntax */
+}
+
+/* Positioning 'next' and 'previous' arrows. */
+.forward-arrow {
+    right:-60px;
+}
+.backward-arrow {
+    left:-60px;
+}
+
+/* Styling labels that contain arrow icons. */
+.forward-arrow label, .backward-arrow label {
+    position:absolute;
+    top:50%;
+    cursor:pointer;
+    -webkit-transition:all 0.6s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:all 0.6s; /* For firefox 4.0+ */
+    -o-transition:all 0.6s;  /* For Opera 10.5+ */ 
+    transition:all 0.6s; /* Standard syntax */
+    opacity:1;
+    -webkit-transform:translate(0%, -50%); /* For Chrome 4.0+, Safari 3.2+ and Opera 15.0+ */
+    -moz-transform:translate(0%, -50%); /* For Firefox 3.5+ */
+    -o-transform:translate(0%, -50%); /* Opera 10.5, 12.1+ */
+    transform:translate(0%, -50%); /* Standard Syntax */
+}
+
+/* Positioning arrows' containers. */
+.forward-arrow label {
+    right:0px;
+}
+.backward-arrow label {
+    left:0px;
+}
+
+/* Styling arrow icons. */
+.forward-arrow span, .backward-arrow span {
+    font-size:26px;
+    color:white;
+}
+
+/* Position the arrows' containers when .container div is hovered. */
+ .container:hover .forward-arrow label{
+    right:130px;
+}
+.container:hover .backward-arrow label{
+    left:130px;
+}
+
+/* Assigning animations to arrow icons when .container div is hovered. */
+.container:hover .forward-arrow label span {
+    -webkit-animation:rotateAntiClock 0.6s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-fill-mode:forwards; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:rotateAntiClock 0.6s; /* For Firefox 5.0+ */ 
+    -moz-animation-fill-mode:forwards; /* For Firefox 5.0+ */
+    -o-animation:rotateAntiClock 0.6s; /* For Opera 12.0+ */
+    -o-animation-fill-mode:forwards; /* For Opera 12.0+ */    
+    animation:rotateAntiClock 0.6s; /* Standard Syntax */    
+    animation-fill-mode:forwards; /* Standard Syntax */
+}
+.container:not(:hover) .forward-arrow label span {
+    -webkit-animation:rotateClock 0.6s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-fill-mode:forwards; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:rotateClock 0.6s; /* For Firefox 5.0+ */ 
+    -moz-animation-fill-mode:forwards; /* For Firefox 5.0+ */
+    -o-animation:rotateClock 0.6s; /* For Opera 12.0+ */
+    -o-animation-fill-mode:forwards; /* For Opera 12.0+ */
+    animation:rotateClock 0.6s; /* Standard Syntax */
+    animation-fill-mode:forwards; /* Standard Syntax */
+}
+.container:hover .backward-arrow label span {
+    -webkit-animation:rotateClock 0.6s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-fill-mode:forwards; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:rotateClock 0.6s; /* For Firefox 5.0+ */ 
+    -moz-animation-fill-mode:forwards; /* For Firefox 5.0+ */
+    -o-animation:rotateClock 0.6s; /* For Opera 12.0+ */     
+    -o-animation-fill-mode:forwards; /* For Opera 12.0+ */
+    animation:rotateClock 0.6s; /* Standard Syntax */
+    animation-fill-mode:forwards; /* Standard Syntax */
+}
+.container:not(:hover) .backward-arrow label span {
+    -webkit-animation:rotateAntiClock 0.6s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-fill-mode:forwards; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:rotateAntiClock 0.6s; /* For Firefox 5.0+ */ 
+    -moz-animation-fill-mode:forwards; /* For Firefox 5.0+ */
+    -o-animation:rotateAntiClock 0.6s; /* For Opera 12.0+ */
+    -o-animation-fill-mode:forwards; /* For Opera 12.0+ */
+    animation:rotateAntiClock 0.6s; /* Standard Syntax */
+    animation-fill-mode:forwards; /* Standard Syntax */
+}
+
+/* Styling bullets' container. */
+.bullets {
+    position:absolute;
+    width:100%;
+    height:16px;
+    background-color:white;
+    z-index:3;
+    bottom:-60px;
+    text-align:center;
+    background-color:red;
+}
+
+/* Styling bulltes. */
+.bullets label {
+    position:relative;
+    background-color:rgba(250, 250, 250, 0.9);
+    border-radius:100%;
+    display:inline-block;
+    width:10px;
+    height:10px;
+    margin:0px 5px;
+    bottom:0px;
+    cursor:pointer;
+    border:1px solid rgba(20, 20, 20, 0.6);
+    -webkit-transition:bottom 0.6s, opacity 0.4s, text-shadow 0.4s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:bottom 0.6s, opacity 0.4s, text-shadow 0.4s; /* For firefox 4.0+ */
+    -o-transition:bottom 0.6s, opacity 0.4s, text-shadow 0.4s;  /* For Opera 10.5+ */ 
+    transition:bottom 0.6s, opacity 0.4s, text-shadow 0.4s; /* Standard syntax */
+    opacity:0.3;
+}
+
+/* For wavy movement of bullets when .container div is hovered. */
+.bullets label:nth-of-type(1) {
+    -webkit-transition-delay:0s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition-delay:0s; /* For firefox 4.0+ */
+    -o-transition-delay:0s;  /* For Opera 10.5+ */ 
+    transition-delay:0s; /* Standard syntax */
+}
+.bullets label:nth-of-type(2) {
+    -webkit-transition-delay:0.05s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition-delay:0.05s; /* For firefox 4.0+ */
+    -o-transition-delay:0.05s;  /* For Opera 10.5+ */ 
+    transition-delay:0.05s; /* Standard syntax */
+}
+ .bullets label:nth-of-type(3) {
+    -webkit-transition-delay:0.1s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition-delay:0.1s; /* For firefox 4.0+ */
+    -o-transition-delay:0.1s;  /* For Opera 10.5+ */ 
+    transition-delay:0.1s; /* Standard syntax */
+}
+.bullets label:nth-of-type(4) {
+    -webkit-transition-delay:0.15s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition-delay:0.15s; /* For firefox 4.0+ */
+    -o-transition-delay:0.15s;  /* For Opera 10.5+ */ 
+    transition-delay:0.15s; /* Standard syntax */
+}
+.bullets label:nth-of-type(5) {
+    -webkit-transition-delay:0.2s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition-delay:0.2s; /* For firefox 4.0+ */
+    -o-transition-delay:0.2s;  /* For Opera 10.5+ */ 
+    transition-delay:0.2s; /* Standard syntax */
+}
+
+/* Hover state of bulltes. */
+.bullets label:hover {
+    -webkit-text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* For Chrome and Safari */
+    -moz-text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* For Firefox */
+    text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* Standar syntax */
+    opacity:1;
+}
+
+/* For sliding up of bullets. */
+.container:hover .bullets label {
+    bottom:80px;
+}
+
+.media-share{
+    display:none;
+}
+
+/* For styling media icons' container. */
+.media {
+    position:absolute;
+    width:100%;
+    z-index:5;
+    text-align:center;
+    top:-60px;
+}
+        
+/* Styling media icons. */
+.media a {
+    margin:0px 20px;
+    position:relative;
+    display:inline-block;
+    -webkit-transition:top 0.6s, opacity 0.4s, text-shadow 0.4s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:top 0.6s, opacity 0.4s, text-shadow 0.4s; /* For firefox 4.0+ */
+    -o-transition:top 0.6s, opacity 0.4s, text-shadow 0.4s;  /* For Opera 10.5+ */ 
+    transition:top 0.6s, opacity 0.4s, text-shadow 04s; /* Standard syntax */
+    top:0px;
+    opacity:0.3;
+    text-decoration:none;
+}
+/* Hover state of media icons -- it's conatiner. */
+.media a:hover {
+    opacity:1;
+    -webkit-text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* For Chrome and Safari */
+    -moz-text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* For Firefox */
+    text-shadow:0px 0px 5px rgba(0,0,0,0.6); /* Standar syntax */
+}
+
+/* For wavy movement of media icons when .container div is hovered. */
+.media .one-media {
+    -webkit-transition-delay:0s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition-delay:0s; /* For firefox 4.0+ */
+    -o-transition-delay:0s;  /* For Opera 10.5+ */ 
+    transition-delay:0s; /* Standard syntax */
+}
+.media .two-media {
+    -webkit-transition-delay:0.05s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition-delay:0.05s; /* For firefox 4.0+ */
+    -o-transition-delay:0.05s;  /* For Opera 10.5+ */ 
+    transition-delay:0.05s; /* Standard syntax */
+}
+.media .three-media {
+    -webkit-transition-delay:0.1s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition-delay:0.1s; /* For firefox 4.0+ */
+    -o-transition-delay:0.1s;  /* For Opera 10.5+ */ 
+    transition-delay:0.1s; /* Standard syntax */
+}
+.media .four-media {
+    -webkit-transition-delay:0.15s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition-delay:0.15s; /* For firefox 4.0+ */
+    -o-transition-delay:0.15s;  /* For Opera 10.5+ */ 
+    transition-delay:0.15s; /* Standard syntax */
+}
+
+/* Styling tooptips on media icons. */
+.media .one-media:hover:before {
+    position:absolute;
+    content:'Facebook';
+    overflow:hidden;
+    background-color:#292929;
+    font-family:Arial, Helvetica, sans-serif;
+    -webkit-animation:showhide 5s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-fill-mode:forwards; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:showhide 5s; /* For Firefox 5.0+ */ 
+    -moz-animation-fill-mode:forwards; /* For Firefox 5.0+ */
+    -o-animation:showhide 5s; /* For Opera 12.0+ */
+    -o-animation-fill-mode:forwards; /* For Opera 12.0+ */    
+    animation:showhide 5s; /* Standard Syntax */    
+    animation-fill-mode:forwards; /* Standard Syntax */
+    padding:5px;
+    font-size:12px;
+    color:white;
+    top:30px;
+}
+.media .two-media:hover:before {
+    position:absolute;
+    content:'Twitter';
+    overflow:hidden;
+    background-color:#292929;
+    font-family:Arial, Helvetica, sans-serif;
+    -webkit-animation:showhide 5s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-fill-mode:forwards; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:showhide 5s; /* For Firefox 5.0+ */ 
+    -moz-animation-fill-mode:forwards; /* For Firefox 5.0+ */
+    -o-animation:showhide 5s; /* For Opera 12.0+ */
+    -o-animation-fill-mode:forwards; /* For Opera 12.0+ */    
+    animation:showhide 5s; /* Standard Syntax */    
+    animation-fill-mode:forwards; /* Standard Syntax */
+    padding:5px;
+    font-size:12px;
+    color:white;
+    top:30px;
+}
+.media .three-media:hover:before {
+    position:absolute;
+    content:'Pinterest';
+    overflow:hidden;
+    background-color:#292929;
+    font-family:Arial, Helvetica, sans-serif;
+    -webkit-animation:showhide 5s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-fill-mode:forwards; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:showhide 5s; /* For Firefox 5.0+ */ 
+    -moz-animation-fill-mode:forwards; /* For Firefox 5.0+ */
+    -o-animation:showhide 5s; /* For Opera 12.0+ */
+    -o-animation-fill-mode:forwards; /* For Opera 12.0+ */    
+    animation:showhide 5s; /* Standard Syntax */    
+    animation-fill-mode:forwards; /* Standard Syntax */
+    padding:5px;
+    font-size:12px;
+    color:white;
+    top:30px;
+}
+.media .four-media:hover:before {
+    position:absolute;
+    content:'Instagram';
+    overflow:hidden;
+    background-color:#292929;
+    font-family:Arial, Helvetica, sans-serif;
+    -webkit-animation:showhide 5s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-fill-mode:forwards; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:showhide 5s; /* For Firefox 5.0+ */ 
+    -moz-animation-fill-mode:forwards; /* For Firefox 5.0+ */
+    -o-animation:showhide 5s; /* For Opera 12.0+ */
+    -o-animation-fill-mode:forwards; /* For Opera 12.0+ */    
+    animation:showhide 5s; /* Standard Syntax */    
+    animation-fill-mode:forwards; /* Standard Syntax */
+    padding:5px;
+    font-size:12px;
+    color:white;
+    top:30px;
+}
+/* For sliding down of media icons. */
+.container:hover .media a {
+    top:80px;
+}
+
+/* Styling media icons. */
+.media a i {
+    font-size:26px;
+    color:rgba(250, 250, 250, 0.9);
+}
+
+/* Hover state of media icons. */
+.media i:hover {
+    -webkit-animation:jello 1s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-origin:center; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:jello 1s; /* For Firefox 5.0+ */ 
+    -moz-animation-origin:center; /* For Firefox */
+    -o-animation:jello 1s; /* For Opera 12.0+ */
+    -o-animation-origin:center; /* For Opera */
+    animation:jello 1s; /* Standard Syntax */
+    animation-origin:center; /* Standard Syntax */
+}
+
+/* Styling elements for devices of screen size < = 768px */
+@media screen and (max-width:768px) {
+
+/* Main container. */
+.container {
+    border:2px solid white;
+    max-height:407px;   
+}
+
+/* Styling autoplay icon (including it's container). */   
+.toggle{
+    margin-top:30px;
+    top:-20px;
+    -webkit-transition:none; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:none; /* For firefox 4.0+ */
+    -o-transition:none;  /* For Opera 10.5+ */ 
+    transition:none; /* Standard syntax */
+}
+.toggle span {
+    color:white;
+    -webkit-transition:opacity 0.4s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:opacity 0.4s; /* For firefox 4.0+ */
+    -o-transition:opacity 0.4s;  /* For Opera 10.5+ */ 
+    transition:opacity 0.4s; /* Standard syntax */
+    opacity:0.5;
+}
+
+/* Positioning the autoplay icon to a fixed place when .container div is hovered, and not hovered. */
+.container:hover .toggle {
+    margin-top:0px;
+}
+.container:not(:hover) .toggle {
+    margin-top:30px;
+}
+
+/* Hover state of autoplay icon. */
+.toggle span:hover {
+    opacity:1;
+    -webkit-text-shadow:0px 0px 3px rgba(20,20,20,0.3); /* For Chrome and Safari */
+    -moz-text-shadow:0px 0px 3px rgba(20,20,20,0.3); /* For Firefox */
+    text-shadow:0px 0px 3px rgba(20,20,20,0.3); /* Standar syntax */
+}
+
+/* Fixing autoplay icon's opacity and position when it's triggered. */
+input[name|=playstop]:checked ~ .toggle-back .toggle span {
+    opacity:1;
+    -webkit-text-shadow:0px 0px 3px rgba(20,20,20,0.3); /* For Chrome and Safari */
+    -moz-text-shadow:0px 0px 3px rgba(20,20,20,0.3); /* For Firefox */
+    text-shadow:0px 0px 3px rgba(20,20,20,0.3); /* Standar syntax */
+}
+input[name|=playstop]:checked ~ .toggle-back  .toggle  {
+    margin-top:0px;
+}
+
+/* Styling the parent container div of media icons. */
+.media-back{
+    position:absolute;
+    top:0px;
+    right:10px;
+    width:100%;
+    height:97px;
+    z-index:99;
+    padding:0;
+    margin:0;
+}
+
+/* Styling share icon's container. */
+.media-share {
+    position:absolute;
+    right:0px;
+    top:10px;
+    cursor:pointer;  
+    display:inline; 
+}
+
+/* Styling share icon. */
+.media-share span {
+    font-size:20px;
+    color:white;
+    -webkit-transition:opacity 0.4s, text-shadow 0.4s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:opacity 0.4s, text-shadow 0.4s; /* For firefox 4.0+ */
+    -o-transition:opacity 0.4s, text-shadow 0.4s;  /* For Opera 10.5+ */ 
+    transition:opacity 0.4s, text-shadow 0.4s; /* Standard syntax */
+    opacity:0.3;
+}
+
+/* Styling tooltip on share icon. */
+.media-share:hover:before {
+    position:absolute;
+    content:'Share';
+    overflow:hidden;
+    background-color:#292929;
+    font-family:Arial, Helvetica, sans-serif;
+    -webkit-animation:showhide 5s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-fill-mode:forwards; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:showhide 5s; /* For Firefox 5.0+ */ 
+    -moz-animation-fill-mode:forwards; /* For Firefox 5.0+ */
+    -o-animation:showhide 5s; /* For Opera 12.0+ */
+    -o-animation-fill-mode:forwards; /* For Opera 12.0+ */    
+    animation:showhide 5s; /* Standard Syntax */    
+    animation-fill-mode:forwards; /* Standard Syntax */
+    padding:5px;
+    right:0px;
+    font-size:12px;
+    color:white;
+    top:30px;
+}
+/* For displaying media icons' container with animation. */
+.media-icons:checked ~ .media{
+    display:block;
+    -webkit-animation:jello 1s; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -webkit-animation-origin:center; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation:jello 1s; /* For Firefox 5.0+ */ 
+    -moz-animation-origin:center; /* For Firefox */
+    -o-animation:jello 1s; /* For Opera 12.0+ */
+    -o-animation-origin:center; /* For Opera */
+    animation:jello 1s; /* Standard Syntax */
+    animation-origin:center; /* Standard Syntax */
+}
+
+/* Hover state of share icon. */
+.media-share:hover span{
+    -webkit-text-shadow:0px 0px 3px rgba(0,0,0,0.3); /* For Chrome and Safari */
+    -moz-text-shadow:0px 0px 3px rgba(0,0,0,0.3); /* For Firefox */
+    text-shadow:0px 0px 3px rgba(0,0,0,0.3); /* Standar syntax */
+    color:white;
+    opacity:1;
+}
+
+/* For share icon, when it's clicked. */
+.media-icons:checked ~ .media-share span{
+    color:rgba(0,0,0,0.5);
+    -webkit-text-shadow:0px 0px 3px rgba(250,250,250,0.3); /* For Chrome and Safari */
+    -moz-text-shadow:0px 0px 3px rgba(250,250,250,0.3); /* For Firefox */
+    text-shadow:0px 0px 3px rgba(250,250,250,0.3); /* Standar syntax */
+    opacity:1;
+}
+
+/* Styling media icons' parent container. */
+.media {
+    display:none;
+    position:absolute;
+    top:35px;
+    max-width:250px;
+    right:0px; 
+    margin:0px 0px;
+    height:auto;
+    background-color:white;
+    padding:12px 0px 11px 0px;
+    -webkit-text-shadow:0px 0px 5px 0px rgba(20,20,20,0.5); /* For Chrome and Safari */
+    -moz-text-shadow:0px 0px 5px 0px rgba(20,20,20,0.5); /* For Firefox */
+    text-shadow:0px 0px 5px 0px rgba(20,20,20,0.5); /* Standar syntax */
+    text-align:center;
+}
+
+/* For cancelling trasnition effects and other styles for media icons' container. */    
+.media a {
+    -webkit-transition:none; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:none; /* For firefox 4.0+ */
+    -o-transition:none;  /* For Opera 10.5+ */ 
+    transition:none; /* Standard syntax */
+    opacity:1;
+    margin:0px 15px;
+    -webkit-text-shadow:none; /* For Chrome and Safari */
+    -moz-text-shadow:none; /* For Firefox */
+    text-shadow:none; /* Standar syntax */
+}
+
+/* Hover state of media icons. */
+.media a:hover {
+    -webkit-text-shadow:none; /* For Chrome and Safari */
+    -moz-text-shadow:none; /* For Firefox */
+    text-shadow:none; /* Standar syntax */
+}
+
+/* Styling media icons. */
+.media a i {
+    font-size:26px;
+    color:#666666;
+}
+            
+/* For ending sliding down of media icons when .container div is hovered. */
+.container:hover .media a {
+    top:0px;
+}
+            
+/* For changing color and size of 'next' and 'previous' arrows. */
+.forward-arrow span, .backward-arrow span {
+    font-size:26px;
+    color:#666666;
+}
+            
+/* Aligning all bullets vertically in the middle. */
+.container .bullets label {
+    top:50%;
+    -webkit-transform:translate(0%, -50%); /* For Chrome 4.0+, Safari 3.2+ and Opera 15.0+ */
+    -moz-transform:translate(0%, -50%); /* For Firefox 3.5+ */
+    -o-transform:translate(0%, -50%); /* Opera 10.5, 12.1+ */
+    transform:translate(0%, -50%); /* Standard Syntax */
+}
+            
+/* For ending sliding up of bullets when .container div is hovered. */
+.container:hover .bullets label {
+    top:50%;
+}
+            
+/* For fixing 'previous' arrow container. */   
+.backward-arrow {
+    background-color:white;
+    position:relative;
+    width:20%;
+    height:56px;
+    float:left;
+    left:0px;
+    border-top:1px dashed grey;
+}
+            
+/* For fixing bullets container. */  
+.bullets {
+    width:60%;
+    position:relative;
+    top:0px;
+    height:56px;
+    float:left;
+    background-color:white;
+    border-top:1px dashed grey;
+}
+
+/* Styling bullets. */
+.bullets label {
+    -webkit-transition:opacity 0.4s; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:opacity 0.4s; /* For firefox 4.0+ */
+    -o-transition:opacity 0.4s;  /* For Opera 10.5+ */ 
+    transition:opacity 0.4s; /* Standard syntax */
+    opacity:0.5;
+    background-color:#eeeeee;
+    border-color:rgba(0,0,0,0.2);
+}
+
+/* For fixing 'next' arrow container. */  
+.forward-arrow {
+    background-color:white;
+    position:relative;
+    float:left;
+    height:56px;
+    width:20%;
+    right:0px;
+    border-top:1px dashed grey;
+}
+            
+/* For cancelling tansition effects of 'next' and 'previous' arrows, and positioning them. */
+.forward-arrow label {
+    right:40px;
+    -webkit-transition:none; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:none; /* For firefox 4.0+ */
+    -o-transition:none;  /* For Opera 10.5+ */ 
+    transition:none; /* Standard syntax */
+}
+.backward-arrow label {
+    left:40px;
+    -webkit-transition:none; /* For Chrome 4.0+ and Safari 3.1 to 6.0 */
+    -moz-transition:none; /* For firefox 4.0+ */
+    -o-transition:none;  /* For Opera 10.5+ */ 
+    transition:none; /* Standard syntax */
+}
+.container:hover .forward-arrow label { 
+    right:40px;
+}
+.container:hover .backward-arrow label {
+    left:40px;
+}
+
+/* For cancelling animations of 'next' and 'previous' arrows. */
+.container:hover .forward-arrow label span, .container:not(:hover) .forward-arrow label span, .container:hover .backward-arrow label span, .container:not(:hover) .backward-arrow label span {
+   -webkit-animation-name:none; /* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+    -moz-animation-name:none; /* For Firefox 5.0+ */ 
+    -o-animation-name:none; /* For Opera 12.0+ */
+    animation-name:none; /* Standard Syntax */
+}
+
+/* Hiding share icon all other divs and in autoplay mode. */ 
+input[name|=playstop]:checked ~ .backward-arrow, input[name|=playstop]:checked ~ .forward-arrow, input[name|=playstop]:checked ~ .bullets, input[name|=playstop]:checked ~ .media-back .media-share {
+    display:none;
+}
+
+}
+
+/* Styling when device's screen size is <= 420px. */
+@media screen and (max-width:420px) {
+
+/* Changing size of arrows' container. */
+.forward-arrow, .backward-arrow {
+    width:12%;
+}
+
+/* Changing size and positions of arrows. */
+.forward-arrow span, .backward-arrow span {
+    font-size:24px;
+}
+.forward-arrow label {
+    margin-top:2px;
+    right:15px;
+}
+.backward-arrow label {
+    margin-top:2px;
+    left:15px;
+}
+.container:hover .forward-arrow label { 
+    right:15px;
+}
+.container:hover .backward-arrow label {
+    left:15px;
+}
+
+/* Changing size of bullets' container. */
+.bullets {
+    width:76%;
+}
+
+/* Changing the size of media icons and its parent containers. */
+.media {
+    max-width:180px;
+    padding:11px 0px 10px 0px;
+}
+.media a {
+margin:0px 10px;    
+}
+.media a i {
+    font-size:20px;
+}
+    
+}
+
+/*--------------------------------- Animations --------------------------------- */
+        
+/* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+@-webkit-keyframes autoplay{
+0%, 15% {
+    left:0%;
+}
+20%,35% {
+    left:-100%;
+}
+40%, 55% {
+    left:-200%;
+}
+60%, 75% {
+    left:-300%;
+}
+80%, 95% {
+    left:-400%;
+}
+100% {
+    left:0%;
+}
+}    
+/* For Firefox 5.0+ */ 
+@-moz-keyframes autoplay{
+0%, 15% {
+    left:0%;
+}
+20%,35% {
+    left:-100%;
+}
+40%, 55% {
+    left:-200%;
+}
+60%, 75% {
+    left:-300%;
+}
+80%, 95% {
+    left:-400%;
+}
+100% {
+    left:0%;
+}
+}
+/* For Opera 12.0+ */
+@-o-keyframes autoplay{
+0%, 15% {
+    left:0%;
+}
+20%,35% {
+    left:-100%;
+}
+40%, 55% {
+    left:-200%;
+}
+60%, 75% {
+    left:-300%;
+}
+80%, 95% {
+    left:-400%;
+}
+100% {
+    left:0%;
+}
+}
+/* Standard Syntax */
+@keyframes autoplay{
+0%, 15% {
+    left:0%;
+}
+20%,35% {
+    left:-100%;
+}
+40%, 55% {
+    left:-200%;
+}
+60%, 75% {
+    left:-300%;
+}
+80%, 95% {
+    left:-400%;
+}
+100% {
+    left:0%;
+}
+}
+               
+/* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+@-webkit-keyframes jello {
+from, 11.1%, to {
+    -webkit-transform:none;
+    transform:none;
+}
+22.2% {
+    -webkit-transform:skewX(-12.5deg) skewY(-12.5deg);
+    transform:skewX(-12.5deg) skewY(-12.5deg);
+}
+33.3% {
+    -webkit-transform:skewX(6.25deg) skewY(6.25deg);
+    transform:skewX(6.25deg) skewY(6.25deg);
+}
+44.4% {
+    -webkit-transform:skewX(-3.125deg) skewY(-3.125deg);
+    transform:skewX(-3.125deg) skewY(-3.125deg);
+}
+55.5% {
+    -webkit-transform:skewX(1.5625deg) skewY(1.5625deg); 
+    transform:skewX(1.5625deg) skewY(1.5625deg);
+}
+66.6% {
+    -webkit-transform:skewX(-0.78125deg) skewY(-0.78125deg);
+    transform:skewX(-0.78125deg) skewY(-0.78125deg);
+}
+77.7% {
+    -webkit-transform:skewX(0.390625deg) skewY(0.390625deg);
+    transform:skewX(0.390625deg) skewY(0.390625deg);
+}
+88.8% {
+    -webkit-transform:skewX(-0.1953125deg) skewY(-0.1953125deg);
+    transform:skewX(-0.1953125deg) skewY(-0.1953125deg);
+}
+}
+/* For Firefox 5.0+ */
+@-moz-keyframes jello {
+from, 11.1%, to {
+    -moz-transform:none;
+    transform:none;
+}
+22.2% {
+    -moz-transform:skewX(-12.5deg) skewY(-12.5deg);
+    transform:skewX(-12.5deg) skewY(-12.5deg);
+}
+33.3% {
+    -moz-transform:skewX(6.25deg) skewY(6.25deg);
+    transform:skewX(6.25deg) skewY(6.25deg);
+}
+44.4% {
+    -moz-transform:skewX(-3.125deg) skewY(-3.125deg);
+    transform:skewX(-3.125deg) skewY(-3.125deg);
+}
+55.5% {
+    -moz-transform:skewX(1.5625deg) skewY(1.5625deg);
+    transform:skewX(1.5625deg) skewY(1.5625deg);
+}
+66.6% {
+    -moz-transform:skewX(-0.78125deg) skewY(-0.78125deg);
+    transform:skewX(-0.78125deg) skewY(-0.78125deg);
+}
+77.7% {
+    -moz-transform:skewX(0.390625deg) skewY(0.390625deg);
+    transform:skewX(0.390625deg) skewY(0.390625deg);
+}
+88.8% {
+    -moz-transform:skewX(-0.1953125deg) skewY(-0.1953125deg);
+    transform:skewX(-0.1953125deg) skewY(-0.1953125deg);
+}
+}
+/* For Opera 12.0+ */
+@-o-keyframes jello {
+from, 11.1%, to {
+    -webkit-transform:none;
+    -o-transform:none;
+    transform:none;
+}
+22.2% {
+    -webkit-transform:skewX(-12.5deg) skewY(-12.5deg);
+    -o-transform:skewX(-12.5deg) skewY(-12.5deg);
+    transform:skewX(-12.5deg) skewY(-12.5deg);
+}
+33.3% {
+    -webkit-transform:skewX(6.25deg) skewY(6.25deg);
+    -o-transform:skewX(6.25deg) skewY(6.25deg);
+    transform:skewX(6.25deg) skewY(6.25deg);
+}
+44.4% {
+    -webkit-transform:skewX(-3.125deg) skewY(-3.125deg);
+    -o-transform:skewX(-3.125deg) skewY(-3.125deg);
+    transform:skewX(-3.125deg) skewY(-3.125deg);
+}
+55.5% {
+    -webkit-transform:skewX(1.5625deg) skewY(1.5625deg);
+    -o-transform:skewX(1.5625deg) skewY(1.5625deg);
+    transform:skewX(1.5625deg) skewY(1.5625deg);
+}
+66.6% {
+    -webkit-transform:skewX(-0.78125deg) skewY(-0.78125deg);
+    -o-transform:skewX(-0.78125deg) skewY(-0.78125deg);
+    transform:skewX(-0.78125deg) skewY(-0.78125deg);
+}
+77.7% {
+    -webkit-transform:skewX(0.390625deg) skewY(0.390625deg);
+    -o-transform:skewX(0.390625deg) skewY(0.390625deg);
+    transform:skewX(0.390625deg) skewY(0.390625deg);
+}
+88.8% {
+    -webkit-transform:skewX(-0.1953125deg) skewY(-0.1953125deg);
+    -o-transform:skewX(-0.1953125deg) skewY(-0.1953125deg);
+    transform:skewX(-0.1953125deg) skewY(-0.1953125deg);
+}
+}
+/* Standard Syntax */
+@keyframes jello {
+from, 11.1%, to {
+    transform:none; 
+}
+22.2% {
+    transform:skewX(-12.5deg) skewY(-12.5deg);
+}
+33.3% {
+    transform:skewX(6.25deg) skewY(6.25deg);
+}
+44.4% {
+    transform:skewX(-3.125deg) skewY(-3.125deg);
+}
+55.5% {
+    transform:skewX(1.5625deg) skewY(1.5625deg);
+}
+66.6% {
+    transform:skewX(-0.78125deg) skewY(-0.78125deg);
+}
+77.7% {
+    transform:skewX(0.390625deg) skewY(0.390625deg);
+}
+88.8% {
+    transform:skewX(-0.1953125deg) skewY(-0.1953125deg);
+}
+}
+        
+/* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+@-webkit-keyframes rotateAntiClock {
+0% {
+    -webkit-transform:rotate(0deg);
+    transform:rotate(0deg);
+}
+100% {
+    -webkit-transform:rotate(-360deg);
+    transform:rotate(-360deg);
+}
+}
+/* For Firefox 5.0+ */
+@-moz-keyframes rotateAntiClock {
+0% {
+    -moz-transform:rotate(0deg);
+    transform:rotate(0deg);
+}
+100% {
+    -moz-transform:rotate(-360deg);
+    transform:rotate(-360deg);
+}
+}
+/* For Opera 12.0+ */
+@-o-keyframes rotateAntiClock {
+0% {
+    -webkit-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+    transform:rotate(0deg);
+}
+100% {
+    -webkit-transform:rotate(-360deg);
+    -o-transform:rotate(-360deg);
+    transform:rotate(-360deg);
+}
+}
+/* Standard Syntax */
+@keyframes rotateAntiClock {
+0% {
+    transform:rotate(0deg);
+}
+100% {
+    transform:rotate(-360deg);
+}
+}
+        
+/* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+@-webkit-keyframes rotateClock {
+0% {
+    -webkit-transform:rotate(0deg);
+    transform:rotate(0deg);
+}
+100% {
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+}
+/* For Firefox 5.0+ */
+@-moz-keyframes rotateClock {
+0% {
+    -moz-transform:rotate(0deg);
+    transform:rotate(0deg);
+}
+100% {
+    -moz-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+}
+/* For Opera 12.0+ */
+@-o-keyframes rotateClock {
+0% {
+    -webkit-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+    transform:rotate(0deg);
+}
+100% {
+    -webkit-transform:rotate(-360deg);
+    -o-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+}
+/* Standard Syntax */
+@keyframes rotateClock {
+0% { 
+    transform:rotate(0deg);
+}
+100% {
+    transform:rotate(360deg);
+}
+}
+
+/* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+@-webkit-keyframes showhide {
+0% {
+    opacity:0;
+}
+10% {
+    opacity:0;
+}
+40%, 80% {
+    opacity:1;
+}
+100% {
+    opacity:0;
+}
+}
+/* For Firefox 5.0+ */
+@-moz-keyframes showhide {
+0% {
+    opacity:0;
+}
+10% {
+    opacity:0;
+}
+40%,80% {
+    opacity:1;
+}
+100% {
+    opacity:0;
+}
+}
+/* For Opera 12.0+ */
+@-o-keyframes showhide {
+0% {
+    opacity:0;
+}
+10% {
+    opacity:0;
+}
+40%, 80% {
+    opacity:1;
+}
+100% {
+    opacity:0;
+}
+}
+/* Standard Syntax */
+@keyframes showhide {
+0% {
+    opacity:0;
+}
+10% {
+    opacity:0;
+}
+40%, 80% {
+    opacity:1;
+}
+100% {
+    opacity:0;
+}
+}
+
+/* For Chrome 4.0+, Safari 4.0+ and Opera 15.0 */
+@-webkit-keyframes downall {
+from, 0% {
+    z-index:100;
+}
+to, 100% {
+    z-index:-10;
+}
+}
+/* For Firefox 5.0+ */
+@-moz-keyframes downall {
+from, 0% {
+    z-index:100;
+}
+to, 100% {
+    z-index:-10;
+}
+}
+/* For Opera 12.0+ */
+@-o-keyframes downall {
+from, 0% {
+    z-index:100;
+}
+to, 100% {
+    z-index:-10;
+}
+}
+/* Standard Syntax */
+@keyframes downall {
+from, 0% {
+    z-index:100;
+}
+to, 100% {
+    z-index:-10;
+}
+}
